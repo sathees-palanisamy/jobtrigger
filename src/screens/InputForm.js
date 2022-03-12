@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class VideoSelectScreen extends Component {
+class InputForm extends Component {
   constructor(props) {
     super(props);
   this.state = {
@@ -15,27 +15,27 @@ class VideoSelectScreen extends Component {
     formError: ''
   }
 
-  this.handleUserId = this.handleUserId.bind(this);
-  this.handleDonationAmt = this.handleDonationAmt.bind(this);
-  this.handleTipAmt = this.handleTipAmt.bind(this);
-  this.saveDonation = this.saveDonation.bind(this);
+  this.handleRacfId = this.handleRacfId.bind(this);
+  this.handleParaInput = this.handleParaInput.bind(this);
+  this.handleRacfPwd = this.handleRacfPwd.bind(this);
+  this.submitJob = this.submitJob.bind(this);
 
 
 }
 
-   handleUserId (event) {
+   handleRacfId (event) {
     this.setState({racfid : event.target.value});
   };
 
-   handleDonationAmt (event) {
+   handleParaInput (event) {
     this.setState({parameter1 : event.target.value});
   };
 
-   handleTipAmt (event) {
+   handleRacfPwd (event) {
     this.setState({racfpwd : event.target.value});
   };
 
-  saveDonation (event) {
+  submitJob (event) {
     event.preventDefault();
     console.log(this.state.racfid);
     console.log(this.state.parameter1);
@@ -55,15 +55,15 @@ class VideoSelectScreen extends Component {
     return (
       <div className="select-screen">
         <h1 >Mainframe Automation</h1>
-        <form onSubmit={this.saveDonation}>
+        <form onSubmit={this.submitJob}>
             <div>
 
             <div>
               <label>Paramter 1: </label>
               <input
                 type="text"
-                onChange={this.handleDonationAmt}
-                id="amount"
+                onChange={this.handleParaInput}
+                id="parameter1"
                 value={this.state.parameter1}
                 
               />
@@ -72,7 +72,7 @@ class VideoSelectScreen extends Component {
               <label >Racf ID: </label>
               <input
                 type="text"
-                onChange={this.handleUserId}
+                onChange={this.handleRacfId}
                 id="racfid"
                 value={this.state.racfid}
                 name="racfid"
@@ -84,7 +84,7 @@ class VideoSelectScreen extends Component {
               <label >Password: </label>
               <input
                 type="password"
-                onChange={this.handleTipAmt}
+                onChange={this.handleRacfPwd}
                 id="racfpwd"
                 value={this.state.racfpwd}
               />
@@ -100,8 +100,8 @@ class VideoSelectScreen extends Component {
 }
 
 function mapStateToProps(state) {
-  return { jobSubmitStatus: state.videos.jobSubmitStatus };
+  return { jobSubmitStatus: state.jobs.jobSubmitStatus };
 }
 
 
-export default connect(mapStateToProps, actions)(VideoSelectScreen);
+export default connect(mapStateToProps, actions)(InputForm);

@@ -1,10 +1,10 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import videosReducer from './videos_reducer';
+import jobReducer from './jobReducer';
 
 const rootReducer = combineReducers({
-  videos: videosReducer
+  jobs: jobReducer
 });
 
 const store = createStore(rootReducer, {}, applyMiddleware(thunk));

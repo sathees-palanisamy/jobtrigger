@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import store from './reducers';
 
-import VideoSelectScreen from './screens/VideoSelectScreen';
+import InputForm from './screens/InputForm';
 
 
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
       <div className="app">
         <Switch>
 
-          <Route path="/" component={VideoSelectScreen} />
+          <Route path="/" component={InputForm} />
         </Switch>
       </div>
     </Router>
