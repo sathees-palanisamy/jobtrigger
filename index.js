@@ -71,10 +71,10 @@ ipcMain.on('mfjob:submit', async  (event, parameter1,racfid,racfpwd) => {
 
   }
 
-  // const results = await ftpExec();
+  const results = await ftpExec();
 
   
-      const results = "Mainframe JOB submitted successfully"
+      // const results = "Mainframe JOB submitted successfully"
 
    mainWindow.webContents.send('mfjob:complete', results);
 });
